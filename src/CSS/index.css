@@ -1,0 +1,10 @@
+.css-1fajery-MuiDataGrid-root .MuiDataGrid-cellContent,.css-i4bv87-MuiSvgIcon-root, .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon, .css-11bfvty-MuiToolbar-root-MuiTablePagination-toolbar, .css-rtrcn9-MuiTablePagination-root .MuiTablePagination-selectLabel, .css-1jbbcbn-MuiDataGrid-columnHeaderTitle, .css-1fajery-MuiDataGrid-root .MuiDataGrid-sortIcon {
+    color: rgba(255,255,255,0.7) !important;
+}
+.css-1fajery-MuiDataGrid-root {
+    border: 0px !important;
+
+}
+.css-1fajery-MuiDataGrid-root .MuiDataGrid-cell {
+    border: 0px !important;
+}
