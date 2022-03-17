@@ -1,5 +1,5 @@
 .css-1fajery-MuiDataGrid-root .MuiDataGrid-cellContent,.css-i4bv87-MuiSvgIcon-root, .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon, .css-11bfvty-MuiToolbar-root-MuiTablePagination-toolbar, .css-rtrcn9-MuiTablePagination-root .MuiTablePagination-selectLabel, .css-1jbbcbn-MuiDataGrid-columnHeaderTitle, .css-1fajery-MuiDataGrid-root .MuiDataGrid-sortIcon {
-    color: rgba(255,255,255,0.7) !important;
+    color: #C5C7D4 !important;
 }
 .css-1fajery-MuiDataGrid-root {
     border: 0px !important;
@@ -7,4 +7,32 @@
 }
 .css-1fajery-MuiDataGrid-root .MuiDataGrid-cell {
     border: 0px !important;
+}
+.side-menu {
+    flex-grow: 1;
+    height: 100%;
+    overflow: hidden;
+}
+.list-container {
+    display: flex;
+    flex-grow: 8;
+    margin: 3%;
+    align-items: center;
+    justify-content: center;
+}
+.side-menu-container {
+    background: rgb(144,146,159);
+    background: linear-gradient(180deg, rgba(144,146,159,1) 0%, rgba(95,97,109,1) 100%);
+    float: left;
+    padding: 5% 10%;
+    height: 100%;
+}
+.title {
+    margin-top: 50px !important;
+    font-size: 50px;
+    font-weight: regular;
+    color: #434655;
+}
+.sec-color {
+    color: #050715;
 }

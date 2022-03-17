@@ -5,11 +5,20 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
 import store from './store'
-
+import { Router, Route, Switch, Redirect } from 'react-router-dom'
+import { history } from './history'
+import AttackView from './Views/AttackView'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Router history={history}>
+        <Switch>
+          <Route exact path='/' component={App} />
+          <Route path='/attackDetails' component={AttackView} />
+
+          <Redirect from='*' to='/404' />
+        </Switch>
+      </Router>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
