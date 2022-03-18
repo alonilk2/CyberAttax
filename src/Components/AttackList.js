@@ -16,7 +16,12 @@ function AttackList () {
 
   if (DataInstance) {
     DataInstance.forEach((attack, index) => {
-      rows.push({ id: attack.id, col1: attack.Name, col2: attack.Description })
+      rows.push({
+        id: attack.id,
+        col1: attack.Name,
+        col2: attack.Description,
+        data: attack
+      })
     })
   }
 
@@ -28,8 +33,7 @@ function AttackList () {
       style={{
         height: 800,
         width: '100%',
-        backgroundColor: '#434655',
-        borderRadius: '20px'
+        backgroundColor: '#FAFFFD'
       }}
     >
       <DataGrid rows={rows} columns={columns} onCellClick={handleRowClick} />

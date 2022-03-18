@@ -1,5 +1,5 @@
 .css-1fajery-MuiDataGrid-root .MuiDataGrid-cellContent,.css-i4bv87-MuiSvgIcon-root, .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon, .css-11bfvty-MuiToolbar-root-MuiTablePagination-toolbar, .css-rtrcn9-MuiTablePagination-root .MuiTablePagination-selectLabel, .css-1jbbcbn-MuiDataGrid-columnHeaderTitle, .css-1fajery-MuiDataGrid-root .MuiDataGrid-sortIcon {
-    color: #C5C7D4 !important;
+    color: #636369 !important;
 }
 .css-1fajery-MuiDataGrid-root {
     border: 0px !important;
@@ -8,31 +8,65 @@
 .css-1fajery-MuiDataGrid-root .MuiDataGrid-cell {
     border: 0px !important;
 }
+p {
+    font-size: 16px !important;
+}
 .side-menu {
-    flex-grow: 1;
-    height: 100%;
+    width: 20%;
     overflow: hidden;
-}
-.list-container {
-    display: flex;
-    flex-grow: 8;
-    margin: 3%;
-    align-items: center;
-    justify-content: center;
-}
-.side-menu-container {
     background: rgb(144,146,159);
     background: linear-gradient(180deg, rgba(144,146,159,1) 0%, rgba(95,97,109,1) 100%);
     float: left;
-    padding: 5% 10%;
-    height: 100%;
 }
+.list-container {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .title {
     margin-top: 50px !important;
     font-size: 50px;
-    font-weight: regular;
-    color: #434655;
+    font-weight:400;
+    color: #E8EFFF;
+}
+.attack-box .title {
+    color: #050715;
+}
+.attack-container .title {
+    color: #050715;
+}
+.attack-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 5%;
 }
 .sec-color {
     color: #050715;
+}
+.row {
+    display: flex;
+    width: 100%;
+    
+}
+.css-1v5z4dq-MuiPaper-root-MuiCard-root {
+    height: 100%;
+    background-color: rgb(255,255,255,0.9) !important;
+    border-radius: 15px !important;
+}
+.css-46bh2p-MuiCardContent-root {
+    text-align: left;
+}
+.css-5lbw0b-MuiTypography-root {
+    margin: 3% 0% !important;
+}
+
+.platform-icon {
+    width: 45px;
+    object-fit: contain;
+    margin: 15px;
 }

@@ -15,14 +15,14 @@
 }
 
 .App-body {
-  background-color: #050715;
+  background-color: #FAFFFD;
   display: flex;
   flex-direction: row;
   font-size: calc(10px + 2vmin);
   color: white;
   min-height: 100vh;
-  height: 1px;
-  overflow: hidden;
+  height: 100%;
+  line-height: 1.7;
 }
 
 .App-link {
