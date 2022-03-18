@@ -1,28 +1,24 @@
-import React, { useEffect } from 'react'
+import React, {useEffect} from 'react'
 import logo from './logo.svg'
 import './App.css'
 import './CSS/index.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { FetchDataFromDB } from './Actions'
 
 import AttackList from './Components/AttackList'
 import SideMenu from './Components/SideMenu'
 
 import AttackComponent from './Components/AttackComponent'
+import { FetchDataFromDB } from './Actions'
 
 function App () {
   const DataInstance = useSelector(state => state.data)
   const DisplayAttack = useSelector(state => state)
   const dispatch = useDispatch()
-
   useEffect(() => {
     dispatch(FetchDataFromDB())
-    if (DataInstance) {
-      if (DataInstance.error) {
-        console.log(DataInstance.error)
-      }
-    }
+
   }, [])
+
   const renderMainContainer = () => {
     if (DisplayAttack) {
       if (DisplayAttack.mainReducer.display) return <AttackComponent />

@@ -2,7 +2,8 @@ import {
   DATA_FETCHED,
   DATA_FETCH_ERROR,
   INCREMENT,
-  DISPLAY_ATTACK
+  DISPLAY_ATTACK,
+  FILTER_RESULTS
 } from '../Constants'
 
 function mainReducer (state = {}, action) {
@@ -27,7 +28,14 @@ function mainReducer (state = {}, action) {
     case DISPLAY_ATTACK: {
       return {
         display: true,
-        attack: action.payload.row
+        attack: action.payload.row,
+        data: action.data
+      }
+    }
+    case FILTER_RESULTS: {
+      return {
+        data: action.data,
+        rows: action.rows
       }
     }
     default:
