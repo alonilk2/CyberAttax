@@ -7,14 +7,17 @@ import { Provider } from 'react-redux'
 import store from './store'
 import { Router, Route, Switch, Redirect } from 'react-router-dom'
 import { history } from './history'
-import AttackView from './Views/AttackView'
+import AttackDetails from './Views/AttackDetailsView'
+import NotFound from './Views/NotFoundView'
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router history={history}>
         <Switch>
           <Route exact path='/' component={App} />
-          <Route path='/attackDetails' component={AttackView} />
+          <Route path='/attackDetails' component={AttackDetails} />
+          <Route path='/404' component={NotFound} />
 
           <Redirect from='*' to='/404' />
         </Switch>

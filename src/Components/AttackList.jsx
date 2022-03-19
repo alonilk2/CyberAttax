@@ -1,40 +1,46 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { DataGrid } from '@mui/x-data-grid'
-import AttackComponent from './AttackComponent'
 import { DISPLAY_ATTACK } from '../Constants'
 import LinearProgress from '@mui/material/LinearProgress'
-
+import { history } from '../history'
+/**
+ * findDataInstanceIdx returns the index of the clicked attack in DataInstance's array.
+ */
+const findDataInstanceIdx = (DataInstance, params) => {
+  let id
+  DataInstance.forEach((ins, index) => {
+    if (ins.id === params.row.data.id) id = index
+  })
+  return id
+}
 function AttackList () {
   const DataInstance = useSelector(state => state.mainReducer.data)
   const Filter = useSelector(state => state.mainReducer.rows)
   const [loading, setLoading] = useState(true)
-  const dispatch = useDispatch()
 
   var columns: GridColDef[] = [
     { field: 'col1', headerName: 'Attack Name', width: 350 },
     { field: 'col2', headerName: 'Attack Description', width: 600 }
   ]
+
+  const pushAttackToRowsArray = attack => {
+    rows.push({
+      id: attack.Id,
+      col1: attack.Name,
+      col2: attack.Description,
+      data: attack
+    })
+  }
   if (DataInstance) {
     var rows: GridRowsProp = []
     DataInstance.forEach((attack, index) => {
       if (Filter) {
         if (attack.Description) {
-          if (attack.Description.includes(Filter))
-            rows.push({
-              id: attack.id,
-              col1: attack.Name,
-              col2: attack.Description,
-              data: attack
-            })
+          if (attack.Description.includes(Filter)) pushAttackToRowsArray(attack)
         }
       } else {
-        rows.push({
-          id: attack.id,
-          col1: attack.Name,
-          col2: attack.Description,
-          data: attack
-        })
+        pushAttackToRowsArray(attack)
       }
     })
   }
@@ -42,8 +48,13 @@ function AttackList () {
   useEffect(() => {
     if (DataInstance) setLoading(false)
   }, [DataInstance])
+
   const handleRowClick = params => {
-    dispatch({ type: DISPLAY_ATTACK, payload: params, data: DataInstance })
+    let idx = findDataInstanceIdx(DataInstance, params)
+    history.push({
+      pathname: '/attackDetails',
+      state: { data: DataInstance[idx] }
+    })
   }
 
   return (

@@ -1,30 +1,41 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FILTER_RESULTS } from '../Constants'
 import t from 'prop-types'
 /**
- * Side Menu is a functional component that renders 
- * and manages the left menu component and the search bar inside it.
+ * SearchBox is a functional component that renders and manages
+ * the description search box
  * @author Alon Barenboim
  */
-function SideMenu () {
-  const [input, setInput] = useState()
-
+function SearchBox () {
   const dispatch = useDispatch()
   const DataInstance = useSelector(state => state.mainReducer.data) //DataInstance contains the data fetched from the server
-
+  return (
+    <input
+      className='search-input'
+      placeholder='Search in Description'
+      onChange={e =>
+        dispatch({
+          type: FILTER_RESULTS,
+          rows: e.target.value,
+          data: DataInstance
+        })
+      }
+    />
+  )
+}
+/**
+ * Side Menu is a functional component that renders
+ * and manages the left menu component
+ * @author Alon Barenboim
+ */
+function SideMenu (props) {
   return (
     <>
       <h1 className='title'>
         Cyber<span className='sec-color'>Attax</span>
       </h1>
-      <input
-        className='search-input'
-        placeholder='Search in Description'
-        onChange={e =>
-          dispatch({ type: FILTER_RESULTS, rows: e.target.value, data: DataInstance })
-        }
-      />
+      {props.showSearch ? SearchBox() : null} {/* Search box appears only when showSearch=true (only on AttackListView) */}
     </>
   )
 }
